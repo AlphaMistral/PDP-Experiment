@@ -8,8 +8,8 @@
 
 #include <iostream>
 
-#include "tinyxml2.h"
 #include "XMLParser.hpp"
+#include "RuleManager.hpp"
 
 using namespace tinyxml2;
 
@@ -18,5 +18,7 @@ int main ()
 	XMLParser :: ParseXML2TXT("data/xmls/asms.xml", "data/txts/asms.txt");
 	XMLParser :: ParseXML2TXT("data/xmls/lms.xml", "data/txts/lms.txt");
 	XMLParser :: ParseXML2TXT("data/xmls/vms.xml", "data/txts/vms.txt");
+	RuleManager rm;
+	rm.InitializeWithTXTFile("data/txts/vms.txt");
 	return 0;
 }

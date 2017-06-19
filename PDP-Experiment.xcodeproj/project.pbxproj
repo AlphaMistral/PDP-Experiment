@@ -12,6 +12,7 @@
 		2803268A1EF7BF7000111651 /* XMLParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 280326891EF7BF7000111651 /* XMLParser.cpp */; };
 		2803268F1EF7D6A000111651 /* Rule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2803268E1EF7D6A000111651 /* Rule.cpp */; };
 		280326941EF7E25000111651 /* LogManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 280326931EF7E25000111651 /* LogManager.cpp */; };
+		2803269A1EF7F0D400111651 /* RuleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 280326991EF7F0D400111651 /* RuleManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +37,7 @@
 		280326891EF7BF7000111651 /* XMLParser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = XMLParser.cpp; path = src/XMLParser.cpp; sourceTree = "<group>"; };
 		2803268E1EF7D6A000111651 /* Rule.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Rule.cpp; path = src/Rule.cpp; sourceTree = "<group>"; };
 		280326931EF7E25000111651 /* LogManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LogManager.cpp; path = src/LogManager.cpp; sourceTree = "<group>"; };
+		280326991EF7F0D400111651 /* RuleManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = RuleManager.cpp; path = src/RuleManager.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 		2803266B1EF66A1600111651 = {
 			isa = PBXGroup;
 			children = (
+				280326991EF7F0D400111651 /* RuleManager.cpp */,
 				280326931EF7E25000111651 /* LogManager.cpp */,
 				280326831EF7B4F000111651 /* tinyxml2.cpp */,
 				2803268E1EF7D6A000111651 /* Rule.cpp */,
@@ -132,6 +135,7 @@
 				280326821EF66A6100111651 /* main.cpp in Sources */,
 				280326841EF7B4F000111651 /* tinyxml2.cpp in Sources */,
 				2803268F1EF7D6A000111651 /* Rule.cpp in Sources */,
+				2803269A1EF7F0D400111651 /* RuleManager.cpp in Sources */,
 				280326941EF7E25000111651 /* LogManager.cpp in Sources */,
 				2803268A1EF7BF7000111651 /* XMLParser.cpp in Sources */,
 			);
