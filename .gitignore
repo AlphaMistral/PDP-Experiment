@@ -2,6 +2,7 @@
 *.obj
 *.in
 *.am
+*.log
 
 # Mac OS X
 *.DS_Store
