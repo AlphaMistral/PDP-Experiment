@@ -19,6 +19,7 @@
 #include <cstring>
 
 #include "tinyxml2.h"
+#include "LogManager.hpp"
 
 ///XML Parser is a static Singleton. You are not supposed to instantiate it!
 ///It just does a simple job, doesn't it? 

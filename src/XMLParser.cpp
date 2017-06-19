@@ -15,9 +15,16 @@ bool XMLParser :: ParseXML2TXT(const char *xml, const char *txt)
 	XMLDocument xmlFile;
 	xmlFile.LoadFile(xml);
 	
+	std::ostringstream stringStream;
+	std::string msg;
+	
 	if (xmlFile.Error())
 	{
-		printf("The indicated file path: \n%s \ndoes not exist, or the file itself is not an XML file. Please have a check before trying to parsing it. The Parser is now exited without doing anything. \n", xml);
+		stringStream << "The indicated file path: \n" << xml << " \ndoes not exist, or the file itself is not an XML file. Please have a check before trying to parsing it. The Parser is now exited without doing anything. \n";
+		msg = stringStream.str();
+		std::cout << msg;
+		LogManager :: AppendToLog(msg);
+		return false;
 	}
 	
 	std::ofstream toTxt;
@@ -26,7 +33,10 @@ bool XMLParser :: ParseXML2TXT(const char *xml, const char *txt)
 	XMLElement *policy = xmlFile.FirstChildElement("Policy");
 	XMLElement *description = policy->FirstChildElement("Description");
 	
-	printf("Currently Parsing: \"%s\"\n", description->GetText());
+	stringStream << "Currently Parsing: \"" << description->GetText() << "\"\n";
+	msg = stringStream.str();
+	std::cout << msg;
+	LogManager :: AppendToLog(msg);
 	
 	XMLElement *rule = policy->FirstChildElement("Rule");
 	

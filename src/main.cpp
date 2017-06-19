@@ -9,6 +9,7 @@
 #include <iostream>
 
 #include "tinyxml2.h"
+#include "LogManager.hpp"
 #include "XMLParser.hpp"
 
 using namespace tinyxml2;
