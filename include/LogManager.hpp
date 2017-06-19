@@ -31,4 +31,6 @@ private:
 	static LogManager singleton;
 };
 
+std::string fromptf(const char *fmt, ...);
+
 #endif /* LogManager_hpp */

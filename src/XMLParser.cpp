@@ -12,16 +12,14 @@ using namespace tinyxml2;
 
 bool XMLParser :: ParseXML2TXT(const char *xml, const char *txt)
 {
+	int sum = 0;
 	XMLDocument xmlFile;
 	xmlFile.LoadFile(xml);
 	
-	std::ostringstream stringStream;
 	std::string msg;
-	
 	if (xmlFile.Error())
 	{
-		stringStream << "The indicated file path: \n" << xml << " \ndoes not exist, or the file itself is not an XML file. Please have a check before trying to parsing it. The Parser is now exited without doing anything. \n";
-		msg = stringStream.str();
+		msg = fromptf("!!!!!The indicated file path: \n%s \ndoes not exist, or the file itself is not an XML file. Please have a check before trying to parsing it. The Parser is now exited without doing anything. \n", xml);
 		std::cout << msg;
 		LogManager :: AppendToLog(msg);
 		return false;
@@ -33,8 +31,7 @@ bool XMLParser :: ParseXML2TXT(const char *xml, const char *txt)
 	XMLElement *policy = xmlFile.FirstChildElement("Policy");
 	XMLElement *description = policy->FirstChildElement("Description");
 	
-	stringStream << "Currently Parsing: \"" << description->GetText() << "\"\n";
-	msg = stringStream.str();
+	msg = fromptf("Currently Parsing :\"%s\"...The Description is as follows:\n %s\n......\n", xml, description->GetText());
 	std::cout << msg;
 	LogManager :: AppendToLog(msg);
 	
@@ -59,8 +56,14 @@ bool XMLParser :: ParseXML2TXT(const char *xml, const char *txt)
 		
 		toTxt << _ruleID << " " << _subject << " " << _action << " " << _resource << " " << _condition << " " << _effect << std::endl;
 		
+		sum++;
+		
 		rule = rule->NextSiblingElement("Rule");
 	}
+	
+	msg = fromptf("Parsing Complete: %s is now parsed into %s! %d entries in total\n", xml, txt, sum);
+	std::cout << msg;
+	LogManager :: AppendToLog(msg);
 	
 	return true;
 }

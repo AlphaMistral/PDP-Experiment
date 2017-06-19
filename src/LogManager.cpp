@@ -30,3 +30,26 @@ void LogManager :: AppendToLog(const char *str)
 	std::time_t now_time = std::chrono::system_clock::to_time_t(now);
 	logStream << std::ctime(&now_time) << str << std::endl;
 }
+
+std::string fromptf(const char *fmt, ...)
+{
+	va_list args;
+	va_start(args, fmt);
+	char buf[32];
+	size_t n = std::vsnprintf(buf, sizeof(buf), fmt, args);
+	va_end(args);
+	
+	// Static buffer large enough?
+	if (n < sizeof(buf))
+	{
+		return {buf, n};
+	}
+	
+	// Static buffer too small
+	std::string s(n + 1, 0);
+	va_start(args, fmt);
+	std::vsnprintf(const_cast<char*>(s.data()), s.size(), fmt, args);
+	va_end(args);
+	
+	return s;
+}
