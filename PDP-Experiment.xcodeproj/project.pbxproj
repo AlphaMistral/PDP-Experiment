@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		280326821EF66A6100111651 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 280326811EF66A6100111651 /* main.cpp */; };
 		280326841EF7B4F000111651 /* tinyxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 280326831EF7B4F000111651 /* tinyxml2.cpp */; };
+		2803268A1EF7BF7000111651 /* XMLParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 280326891EF7BF7000111651 /* XMLParser.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,6 +31,7 @@
 		280326811EF66A6100111651 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = "<group>"; };
 		280326831EF7B4F000111651 /* tinyxml2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxml2.cpp; path = src/tinyxml2/tinyxml2.cpp; sourceTree = "<group>"; };
 		280326851EF7B8F600111651 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
+		280326891EF7BF7000111651 /* XMLParser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = XMLParser.cpp; path = src/XMLParser.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,9 +48,10 @@
 		2803266B1EF66A1600111651 = {
 			isa = PBXGroup;
 			children = (
+				280326811EF66A6100111651 /* main.cpp */,
+				280326891EF7BF7000111651 /* XMLParser.cpp */,
 				280326851EF7B8F600111651 /* include */,
 				280326831EF7B4F000111651 /* tinyxml2.cpp */,
-				280326811EF66A6100111651 /* main.cpp */,
 				2803267E1EF66A4700111651 /* data */,
 				280326801EF66A4700111651 /* src */,
 				280326751EF66A1600111651 /* Products */,
@@ -122,6 +125,7 @@
 			files = (
 				280326821EF66A6100111651 /* main.cpp in Sources */,
 				280326841EF7B4F000111651 /* tinyxml2.cpp in Sources */,
+				2803268A1EF7BF7000111651 /* XMLParser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
