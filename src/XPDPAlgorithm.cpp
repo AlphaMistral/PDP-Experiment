@@ -74,5 +74,6 @@ void XPDPAlgorithm :: Subject :: MakeCluster()
 				chosenCentroid = j;
 			}
 		}
+		Cluster chosenCluster = clusters[chosenCentroid];
 	}
 }
