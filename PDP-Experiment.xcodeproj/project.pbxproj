@@ -14,6 +14,7 @@
 		280326941EF7E25000111651 /* LogManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 280326931EF7E25000111651 /* LogManager.cpp */; };
 		2803269A1EF7F0D400111651 /* RuleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 280326991EF7F0D400111651 /* RuleManager.cpp */; };
 		2803269F1EF7F56400111651 /* XPDPAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2803269E1EF7F56400111651 /* XPDPAlgorithm.cpp */; };
+		280326A41EF8012400111651 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 280326A31EF8012400111651 /* Matrix.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +41,7 @@
 		280326931EF7E25000111651 /* LogManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LogManager.cpp; path = src/LogManager.cpp; sourceTree = "<group>"; };
 		280326991EF7F0D400111651 /* RuleManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = RuleManager.cpp; path = src/RuleManager.cpp; sourceTree = "<group>"; };
 		2803269E1EF7F56400111651 /* XPDPAlgorithm.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = XPDPAlgorithm.cpp; path = src/XPDPAlgorithm.cpp; sourceTree = "<group>"; };
+		280326A31EF8012400111651 /* Matrix.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Matrix.cpp; path = src/Matrix.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +58,14 @@
 		2803266B1EF66A1600111651 = {
 			isa = PBXGroup;
 			children = (
-				2803269E1EF7F56400111651 /* XPDPAlgorithm.cpp */,
+				280326A31EF8012400111651 /* Matrix.cpp */,
 				280326991EF7F0D400111651 /* RuleManager.cpp */,
 				280326931EF7E25000111651 /* LogManager.cpp */,
 				280326831EF7B4F000111651 /* tinyxml2.cpp */,
 				2803268E1EF7D6A000111651 /* Rule.cpp */,
 				280326811EF66A6100111651 /* main.cpp */,
 				280326891EF7BF7000111651 /* XMLParser.cpp */,
+				2803269E1EF7F56400111651 /* XPDPAlgorithm.cpp */,
 				280326851EF7B8F600111651 /* include */,
 				2803267E1EF66A4700111651 /* data */,
 				280326801EF66A4700111651 /* src */,
@@ -140,6 +143,7 @@
 				2803268F1EF7D6A000111651 /* Rule.cpp in Sources */,
 				2803269A1EF7F0D400111651 /* RuleManager.cpp in Sources */,
 				280326941EF7E25000111651 /* LogManager.cpp in Sources */,
+				280326A41EF8012400111651 /* Matrix.cpp in Sources */,
 				2803269F1EF7F56400111651 /* XPDPAlgorithm.cpp in Sources */,
 				2803268A1EF7BF7000111651 /* XMLParser.cpp in Sources */,
 			);
