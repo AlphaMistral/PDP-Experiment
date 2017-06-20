@@ -19,9 +19,7 @@ bool XMLParser :: ParseXML2TXT(const char *xml, const char *txt)
 	std::string msg;
 	if (xmlFile.Error())
 	{
-		msg = fromptf("!!!!!The indicated file path: \n%s \ndoes not exist, or the file itself is not an XML file. Please have a check before trying to parsing it. The Parser is now exited without doing anything. \n", xml);
-		std::cout << msg;
-		LogManager :: AppendToLog(msg);
+		LogManager::Alert(fromptf("!!!!!The indicated file path: \n%s \ndoes not exist, or the file itself is not an XML file. Please have a check before trying to parsing it. The Parser is now exited without doing anything. \n", xml));
 		return false;
 	}
 	
@@ -31,9 +29,7 @@ bool XMLParser :: ParseXML2TXT(const char *xml, const char *txt)
 	XMLElement *policy = xmlFile.FirstChildElement("Policy");
 	XMLElement *description = policy->FirstChildElement("Description");
 	
-	msg = fromptf("Currently Parsing :\"%s\"...The Description is as follows:\n %s\n......\n", xml, description->GetText());
-	std::cout << msg;
-	LogManager :: AppendToLog(msg);
+	LogManager::Alert(fromptf("Currently Parsing :\"%s\"...The Description is as follows:\n %s\n......\n", xml, description->GetText()));
 	
 	XMLElement *rule = policy->FirstChildElement("Rule");
 	
@@ -61,9 +57,7 @@ bool XMLParser :: ParseXML2TXT(const char *xml, const char *txt)
 		rule = rule->NextSiblingElement("Rule");
 	}
 	
-	msg = fromptf("Parsing Complete: %s is now parsed into %s! %d entries in total\n", xml, txt, sum);
-	std::cout << msg;
-	LogManager :: AppendToLog(msg);
+	LogManager::Alert(fromptf("Parsing Complete: %s is now parsed into %s! %d entries in total\n", xml, txt, sum));
 	
 	return true;
 }

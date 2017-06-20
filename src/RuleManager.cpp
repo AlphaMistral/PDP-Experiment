@@ -13,6 +13,11 @@ RuleManager :: RuleManager()
 	rules = NULL;
 }
 
+RuleManager :: ~RuleManager()
+{
+	rules->clear();
+}
+
 RuleManager :: RuleManager(const char *txt)
 {
 	if(!InitializeWithTXTFile(txt))
@@ -25,22 +30,16 @@ bool RuleManager::InitializeWithTXTFile(const char *txt)
 	std::ifstream txtIn(txt, std::ios::in);
 	if(!txtIn.good())
 	{
-		msg = fromptf("The Indicated TXT File \"%s\" does not exist! Initialization of Rule Manager Aborted! \n", txt);
-		std::cout << msg;
-		LogManager::AppendToLog(msg);
+		LogManager::Alert(fromptf("The Indicated TXT File \"%s\" does not exist! Initialization of Rule Manager Aborted! \n", txt));
 		return false;
 	}
-	rules = new std::vector<Rule>();
-	msg = fromptf("TXT File \"%s\" is now being analyzed. Please standby ... \n", txt);
-	std::cout << msg;
-	LogManager::AppendToLog(msg);
+	rules = new std::vector<Rule *>();
+	LogManager::Alert(fromptf("TXT File \"%s\" is now being analyzed. Please standby ... \n", txt));
 	std::string i, s, a, r, c, e;
 	while(txtIn >> i >> s >> a >> r >> c >> e)
 	{
-		rules->push_back(Rule(i, s, a, r, c, e));
+		rules->push_back(new Rule(i, s, a, r, c, e));
 	}
-	msg = fromptf("File Analysis is successful! %d entries have been read into the rules! \n", rules->size());
-	std::cout << msg;
-	LogManager::AppendToLog(msg);
+	LogManager::Alert(fromptf("File Analysis is successful! %d entries have been read into the rules! \n", rules->size()));
 	return true;
 }

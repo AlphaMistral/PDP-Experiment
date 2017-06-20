@@ -26,6 +26,8 @@ public:
 	static std::ofstream logStream;
 	static void AppendToLog(std::string);
 	static void AppendToLog(const char *);
+	static void Alert(std::string);
+	static void Alert(const char *);
 private:
 	LogManager();
 	static LogManager singleton;
