@@ -26,16 +26,16 @@ XPDPAlgorithm :: ~XPDPAlgorithm()
 	}
 }
 
-XPDPAlgorithm :: Cluster :: Cluster(Rule r)
+XPDPAlgorithm :: Cluster :: Cluster(Rule *r)
 {
-	centeroid = r;
+	centeroid = *r;
 }
 
-void XPDPAlgorithm :: Initialize(std::vector<Rule> *r)
+void XPDPAlgorithm :: Initialize(std::vector<Rule *> *r)
 {
-	for(std::vector<Rule>::iterator iter = r->begin();iter != r->end();iter++)
+	for(std::vector<Rule *>::iterator iter = r->begin();iter != r->end();iter++)
 	{
-		std::string subject = (*iter).subject;
+		std::string subject = (*iter)->subject;
 		if(subjectDic.find(subject) == subjectDic.end())
 		{
 			subjectDic[subject] = new XPDPAlgorithm :: Subject();
@@ -59,7 +59,7 @@ void XPDPAlgorithm :: Subject :: MakeCluster()
 	///Why? Because I am lazy. That's all.
 	for(int i = 0;i < cluster_num;i++)
 	{
-		clusters.push_back(Cluster(rules[i]));
+		clusters.push_back(new Cluster(rules[i]));
 	}
 	for(int i = 0;i < (int)rules.size();i++)
 	{
@@ -67,13 +67,13 @@ void XPDPAlgorithm :: Subject :: MakeCluster()
 		int chosenCentroid = 0;
 		for(int j = 0;j < cluster_num;j++)
 		{
-			float distance = CalculateDistance(rules[i], rules[j]);
+			float distance = CalculateDistance(*rules[i], *rules[j]);
 			if(distance < smallest)
 			{
 				smallest = distance;
 				chosenCentroid = j;
 			}
 		}
-		Cluster chosenCluster = clusters[chosenCentroid];
+		Cluster *chosenCluster = clusters[chosenCentroid];
 	}
 }

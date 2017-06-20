@@ -29,8 +29,8 @@ private:
 	{
 	public:
 		static const int STD_CLUSTER_NUM;
-		std::vector<Rule> rules;
-		std::vector<Cluster> clusters;
+		std::vector<Rule *> rules;
+		std::vector<Cluster *> clusters;
 		Subject (){}
 		~Subject (){}
 		void MakeCluster ();
@@ -40,14 +40,14 @@ private:
 	{
 	public:
 		Rule centeroid;
-		std::vector<Rule> rules;
+		std::vector<Rule *> rules;
 		Cluster (){}
-		Cluster (Rule);
+		Cluster (Rule *);
 		~Cluster (){}
 	};
 public:
 	static std::map<std::string, Subject*> subjectDic;
-	void Initialize (std::vector<Rule> *);
+	void Initialize (std::vector<Rule *> *);
 };
 
 #endif /* XPDPAlgorithm_hpp */
