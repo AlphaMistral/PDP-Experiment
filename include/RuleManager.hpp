@@ -24,7 +24,7 @@
 class RuleManager
 {
 public:
-	std::vector<Rule> *rules;
+	std::vector<Rule *> *rules;
 	RuleManager();
 	RuleManager(const char *);
 	bool InitializeWithTXTFile(const char *);
