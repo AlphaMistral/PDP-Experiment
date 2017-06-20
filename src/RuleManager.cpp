@@ -13,6 +13,11 @@ RuleManager :: RuleManager()
 	rules = NULL;
 }
 
+RuleManager :: ~RuleManager()
+{
+	rules->clear();
+}
+
 RuleManager :: RuleManager(const char *txt)
 {
 	if(!InitializeWithTXTFile(txt))
