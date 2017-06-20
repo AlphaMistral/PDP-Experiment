@@ -31,6 +31,22 @@ void LogManager :: AppendToLog(const char *str)
 	logStream << std::ctime(&now_time) << str << std::endl;
 }
 
+void LogManager :: Alert(std::string str)
+{
+	std::chrono::time_point<std::chrono::system_clock> now = std::chrono::system_clock::now();
+	std::time_t now_time = std::chrono::system_clock::to_time_t(now);
+	std::cout << str << std::endl;
+	logStream << std::ctime(&now_time) << str << std::endl;
+}
+
+void LogManager :: Alert(const char *str)
+{
+	std::chrono::time_point<std::chrono::system_clock> now = std::chrono::system_clock::now();
+	std::time_t now_time = std::chrono::system_clock::to_time_t(now);
+	std::cout << str << std::endl;
+	logStream << std::ctime(&now_time) << str << std::endl;
+}
+
 std::string fromptf(const char *fmt, ...)
 {
 	va_list args;

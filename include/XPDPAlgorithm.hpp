@@ -29,25 +29,31 @@ private:
 	{
 	public:
 		static const int STD_CLUSTER_NUM;
-		std::vector<Rule> rules;
-		std::vector<Cluster> clusters;
+		static const int STD_ITERATION;
+		std::vector<Rule *> rules;
+		std::vector<std::shared_ptr<Cluster>> clusters;
 		Subject (){}
 		~Subject (){}
 		void MakeCluster ();
 		static float CalculateDistance(Rule, Rule);
+	private:
+		void AssignCentroid(int, Cluster **);
+		void CalculateNewCentroid();
 	};
 	class Cluster
 	{
 	public:
 		Rule centeroid;
-		std::vector<Rule> rules;
+		std::vector<Rule *> rules;
 		Cluster (){}
-		Cluster (Rule);
+		Cluster (Rule *);
 		~Cluster (){}
 	};
 public:
-	static std::map<std::string, Subject*> subjectDic;
-	void Initialize (std::vector<Rule> *);
+	static std::map<std::string, std::shared_ptr<Subject>> subjectDic;
+	static void Initialize(std::vector<Rule *> *);
+	static Rule Query(Rule);
+	static void ReleaseAllResources();
 };
 
 #endif /* XPDPAlgorithm_hpp */
