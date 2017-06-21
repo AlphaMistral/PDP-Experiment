@@ -39,7 +39,7 @@ Matrix Matrix :: operator + (const Matrix &tar)
 {
 	if(n != tar.n || m != tar.m)
 	{
-		LogManager::Alert(fromptf("FATAL ERROR! You are trying to add two matrices with different scales! Nothing is done but a Matrix of scale 0 * 0 is returned. \n"));
+		LogManager::Alert(fromptf("FATAL ERROR! You are trying to add two matrices with different scales! Nothing is done but a Matrix of scale 0 * 0 is returned. "));
 		return Matrix(0, 0);
 	}
 	Matrix res(n, m);
@@ -57,7 +57,7 @@ Matrix Matrix :: operator * (const Matrix &tar)
 {
 	if(m != tar.n)
 	{
-		LogManager::Alert(fromptf("FATAL ERROR! You are trying to multiply two matrices with invalid scales! Nothing is done but a Matrix of scale 0 * 0 is returned. \n"));
+		LogManager::Alert(fromptf("FATAL ERROR! You are trying to multiply two matrices with invalid scales! Nothing is done but a Matrix of scale 0 * 0 is returned. "));
 		return Matrix(0, 0);
 	}
 	Matrix res(n, tar.m);

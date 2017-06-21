@@ -36,6 +36,8 @@ XPDPAlgorithm :: Cluster :: Cluster(Rule *r)
 
 void XPDPAlgorithm :: Initialize(std::vector<Rule *> *r)
 {
+	LogManager::StartTiming();
+	LogManager::Alert("Trying to Intialized the XPDP Algorithm with the indicated rules. ");
 	for(std::vector<Rule *>::iterator iter = r->begin();iter != r->end();iter++)
 	{
 		std::string subject = (*iter)->subject;
@@ -53,14 +55,16 @@ void XPDPAlgorithm :: Initialize(std::vector<Rule *> *r)
 	{
 		iter->second->MakeCluster();
 	}
+	LogManager::AlertWithExecutionTime("XPDP Algorithm initialization Complete! ", false);
 }
 
 Rule XPDPAlgorithm :: Query(Rule r)
 {
+	LogManager::StartTiming();
 	Subject *correspondingSubject = subjectDic[r.subject].get();
 	if(correspondingSubject == NULL)
 	{
-		LogManager::Alert(fromptf("The Indicated Subject: \"%s\" does not exist! \n", r.subject.c_str()));
+		LogManager::Alert(fromptf("The Indicated Subject: \"%s\" does not exist! ", r.subject.c_str()));
 	}
 	else
 	{
@@ -82,11 +86,13 @@ Rule XPDPAlgorithm :: Query(Rule r)
 				std::string action = (*iter)->action, resource = (*iter)->resource, condition = (*iter)->condition;
 				if(r.action == action && r.resource == resource && r.condition == condition)
 				{
+					LogManager::AlertWithExecutionTime("Query Complete! ", false);
 					return *(*iter);
 				}
 			}
 		}
 	}
+	LogManager::AlertWithExecutionTime("Query Complete! ", false);
 	return Rule("NOT FOUND", "NOT FOUND", "NOT FOUND", "NOT FOUND", "NOT FOUND", "NOT FOUND");
 }
 

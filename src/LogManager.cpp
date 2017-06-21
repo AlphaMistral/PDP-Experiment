@@ -11,6 +11,7 @@
 const std::string LogManager :: logPath = "Debug/PDPLOG.log";
 std::ofstream LogManager :: logStream;
 LogManager LogManager :: singleton;
+double LogManager :: startTime;
 
 LogManager :: LogManager()
 {
@@ -45,6 +46,32 @@ void LogManager :: Alert(const char *str)
 	std::time_t now_time = std::chrono::system_clock::to_time_t(now);
 	std::cout << str << std::endl;
 	logStream << std::ctime(&now_time) << str << std::endl;
+}
+
+void LogManager :: AlertWithExecutionTime(std::string str, bool restart)
+{
+	Alert(str);
+	logStream << "Execution Time: " << GetExecutionTime() << "ms." << std::endl;
+	if(restart)
+		StartTiming();
+}
+
+void LogManager :: AlertWithExecutionTime(const char *str, bool restart)
+{
+	Alert(str);
+	logStream << "Execution Time: " << GetExecutionTime() << "ms. " << std::endl;
+	if(restart)
+		StartTiming();
+}
+
+void LogManager :: StartTiming()
+{
+	startTime = clock();
+}
+
+double LogManager :: GetExecutionTime()
+{
+	return (clock() - startTime)/(double)CLOCKS_PER_SEC * 1000;
 }
 
 std::string fromptf(const char *fmt, ...)

@@ -30,16 +30,16 @@ bool RuleManager::InitializeWithTXTFile(const char *txt)
 	std::ifstream txtIn(txt, std::ios::in);
 	if(!txtIn.good())
 	{
-		LogManager::Alert(fromptf("The Indicated TXT File \"%s\" does not exist! Initialization of Rule Manager Aborted! \n", txt));
+		LogManager::Alert(fromptf("The Indicated TXT File \"%s\" does not exist! Initialization of Rule Manager Aborted! ", txt));
 		return false;
 	}
 	rules = new std::vector<Rule *>();
-	LogManager::Alert(fromptf("TXT File \"%s\" is now being analyzed. Please standby ... \n", txt));
+	LogManager::Alert(fromptf("TXT File \"%s\" is now being analyzed. Please standby ... ", txt));
 	std::string i, s, a, r, c, e;
 	while(txtIn >> i >> s >> a >> r >> c >> e)
 	{
 		rules->push_back(new Rule(i, s, a, r, c, e));
 	}
-	LogManager::Alert(fromptf("File Analysis is successful! %d entries have been read into the rules! \n", rules->size()));
+	LogManager::Alert(fromptf("File Analysis is successful! %d entries have been read into the rules! ", rules->size()));
 	return true;
 }

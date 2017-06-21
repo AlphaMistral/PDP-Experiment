@@ -28,9 +28,14 @@ public:
 	static void AppendToLog(const char *);
 	static void Alert(std::string);
 	static void Alert(const char *);
+	static void AlertWithExecutionTime(std::string, bool);
+	static void AlertWithExecutionTime(const char *, bool);
+	static void StartTiming();
+	static double GetExecutionTime();
 private:
 	LogManager();
 	static LogManager singleton;
+	static double startTime;
 };
 
 std::string fromptf(const char *fmt, ...);
