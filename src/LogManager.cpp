@@ -8,7 +8,7 @@
 
 #include "LogManager.hpp"
 
-const std::string LogManager :: logPath = "Debug/PDPLOG.log";
+const std::string LogManager :: logPath = "PDPLOG.log";
 std::ofstream LogManager :: logStream;
 LogManager LogManager :: singleton;
 double LogManager :: startTime;
