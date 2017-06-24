@@ -14,6 +14,7 @@
 #include <cstdlib>
 #include <vector>
 #include <map>
+#include <memory>
 
 #include "Matrix.hpp"
 #include "RuleManager.hpp"

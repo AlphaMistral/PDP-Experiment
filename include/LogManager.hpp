@@ -18,6 +18,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <chrono>
+#include <cstdarg>
 
 class LogManager
 {

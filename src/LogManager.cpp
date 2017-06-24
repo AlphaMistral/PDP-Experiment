@@ -76,7 +76,7 @@ double LogManager :: GetExecutionTime()
 
 std::string fromptf(const char *fmt, ...)
 {
-	va_list args;
+	__gnuc_va_list args;
 	va_start(args, fmt);
 	char buf[32];
 	size_t n = std::vsnprintf(buf, sizeof(buf), fmt, args);
