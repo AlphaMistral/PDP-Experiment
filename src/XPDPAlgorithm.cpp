@@ -60,7 +60,7 @@ void XPDPAlgorithm :: Initialize(std::vector<Rule *> *r)
 
 Rule XPDPAlgorithm :: Query(Rule r)
 {
-	LogManager::StartTiming();
+	//LogManager::StartTiming();
 	Subject *correspondingSubject = subjectDic[r.subject].get();
 	if(correspondingSubject == NULL)
 	{
@@ -86,13 +86,13 @@ Rule XPDPAlgorithm :: Query(Rule r)
 				std::string action = (*iter)->action, resource = (*iter)->resource, condition = (*iter)->condition;
 				if(r.action == action && r.resource == resource && r.condition == condition)
 				{
-					LogManager::AlertWithExecutionTime("XPDP Query Complete! ", false);
+					//LogManager::AlertWithExecutionTime("XPDP Query Complete! ", false);
 					return *(*iter);
 				}
 			}
 		}
 	}
-	LogManager::AlertWithExecutionTime("XPDP Query Complete! ", false);
+	//LogManager::AlertWithExecutionTime("XPDP Query Complete! ", false);
 	return Rule("NOT FOUND", "NOT FOUND", "NOT FOUND", "NOT FOUND", "NOT FOUND", "NOT FOUND");
 }
 
