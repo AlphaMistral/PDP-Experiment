@@ -11,6 +11,7 @@
 #include "XMLParser.hpp"
 #include "RuleManager.hpp"
 #include "XPDPAlgorithm.hpp"
+#include "SunPDPAlgorithm.hpp"
 
 using namespace tinyxml2;
 
@@ -21,6 +22,8 @@ int main ()
 	XPDPAlgorithm::Initialize(rm.rules);
 	std::cout << XPDPAlgorithm::Query(Rule("R", "newSub15", "RESERVEBOOK", "BORROWERACCOUNT", "SALEOPENEDMINOR", "Permit")).effect << std::endl;
 	XPDPAlgorithm::ReleaseAllResources();
+	SunPDPAlgorithm::InitWithRules(rm.rules);
+	std::cout << SunPDPAlgorithm::Query(Rule("R", "newSub15", "RESERVEBOOK", "BORROWERACCOUNT", "SALEOPENEDMINOR", "Permit")).effect << std::endl;
 	while(true)
 	{
 		//XMLParser :: ParseXML2TXT("data/xmls/asms.xml", "data/txts/asms.txt");
