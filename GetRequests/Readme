@@ -1,0 +1,5 @@
+Use ProduceRequests to randomly produce requests and writes them into ../data/txts/request.txt
+To get requests from different PolicySets(asms.txt,lms.txt,vms.txt), you need to manually modify them in ProduceRequests.cpp
+The number of requests produced is also capable of being modified in ProduceRequests.cpp, arg named as NUM_OF_REQ
+
+ReadRequests.cpp is used to test the function: readRequests()
